@@ -1,0 +1,1 @@
+# Meta-GM-LaTeX-Template
