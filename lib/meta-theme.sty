@@ -1,0 +1,66 @@
+\ProvidesPackage{lib/meta-theme}
+
+
+% Prerequisites Start
+\usepackage[
+	bindingoffset=15pt,
+	hmargin=50pt,
+	top=40pt,
+	bbottom=50pt,
+	footskip=30pt, % This is to line up footer text and graphics
+	scale=0.90,
+]{geometry}
+
+
+\RequirePackage[table]{xcolor}
+\RequirePackage[in]{fullpage}
+
+% \RequirePackage{array}
+% \RequirePackage{calc}
+% \RequirePackage{enumitem}
+% \RequirePackage{ifluatex}
+\RequirePackage{keycommand}
+% \RequirePackage{tabularx}
+% \RequirePackage[most]{tcolorbox}  
+% \RequirePackage{tikz}
+\RequirePackage{xkeyval}
+% \RequirePackage{xparse}
+% \RequirePackage[hidelinks]{hyperref}
+% \RequirePackage{multicol}
+
+
+% Prerequisites end
+
+
+% Options Start
+\newtoggle{bool-bg}
+\newtoggle{bool-footer-scroll}
+\DeclareOptionX{bg}[full]{
+	\XKV@cc*+[\val\index]{#1}{full,none,print}{%
+		\ifcase\index\relax
+		% full
+		\toggletrue{bool-bg}
+		\toggletrue{bool-footer-scroll}
+		\or
+		% none
+		\togglefalse{bool-bg}
+		\togglefalse{bool-footer-scroll}
+		\or
+		% print
+		\togglefalse{bool-bg}
+		\toggletrue{bool-footer-scroll}
+		\fi
+		} { \PackageWarning{meta}{\Val\ is not a valid choice for bbg annd was ignored}
+}
+
+
+}
+
+
+
+
+
+% Options End
+% Defaults
+\ExecuteOptionsX{bg=full}
+\ProcessOptionsX\relax
