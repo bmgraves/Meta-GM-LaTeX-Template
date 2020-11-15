@@ -5,8 +5,8 @@
 \usepackage[
 	bindingoffset=15pt,
 	hmargin=50pt,
-	top=40pt,
-	bbottom=50pt,
+	top=25pt,
+	bottom=25pt,
 	footskip=30pt, % This is to line up footer text and graphics
 	scale=0.90,
 ]{geometry}
@@ -22,7 +22,7 @@
 \RequirePackage{keycommand}
 % \RequirePackage{tabularx}
 % \RequirePackage[most]{tcolorbox}  
-% \RequirePackage{tikz}
+\RequirePackage{tikz}
 \RequirePackage{xkeyval}
 % \RequirePackage{xparse}
 % \RequirePackage[hidelinks]{hyperref}
@@ -50,11 +50,17 @@
 		\togglefalse{bool-bg}
 		\toggletrue{bool-footer-scroll}
 		\fi
-		} { \PackageWarning{meta}{\Val\ is not a valid choice for bbg annd was ignored}
-}
+		} 
+		{ 
+			\PackageWarning{meta}{\Val\ is not a valid choice for bg annd was ignored}
+	}
 
 
 }
+
+
+\newtoggle{justified}
+\DeclareOptionX{justified}{\toggletrue{justified}}
 
 
 
@@ -64,3 +70,8 @@
 % Defaults
 \ExecuteOptionsX{bg=full}
 \ProcessOptionsX\relax
+
+
+% Sub Templates Start
+\RequirePackage{lib/main/meta-layout}
+% Sub Templates End

@@ -1,0 +1,36 @@
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+
+
+% \newlength{\nobgfooterheight}
+% \setlength{\nobgfooterheight}{\paperheight}
+% \addtolength{\nobgfooterheight}{-1in}
+% \addtolength{\nobgfooterheight}{-\topmargin}
+% \addtolength{\nobgfooterheight}{-\headheight}
+% \addtolength{\nobgfooterheight}{-\headsep}
+% \addtolength{\nobgfooterheight}{-\textheight}
+% \addtolength{\nobgfooterheight}{-\footskip}
+% \renewcommand{\headrulewidth}{0.0pt} %no rule for header
+% \renewcommand{\footrulewidth}{0.0pt} %no rule for footer
+
+
+\fancyhf{}
+\fancyhead{
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/main/img/background}};
+	\end{tikzpicture}
+}
+
+
+\fancypagestyle{plain}{}
+
+% \fancypagestyle{chapter}{
+%     \thispagestyle{fancy}
+%     \fancyhead{
+%         \begin{tikzpicture}[remember picture,overlay]
+%             \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{lib/main/img/background}};
+%             \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{lib/main/img/header-chapter}};
+%             \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{lib/main/img/header-chapter}};
+%         \end{tikzpicture}
+%     }
+% }
